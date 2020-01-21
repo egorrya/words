@@ -6,74 +6,27 @@
   <!--[if IE]>
    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <style>
-	input {
-  background-color: #333;
-  border: none;
-  color: white;
-  padding: 1em;
-  margin: 1em;
-  border-radius: .5em;
-}
-
-input:hover {
-  background-color: #97b5c7;
-  border: none;
-  color: #4f484f;
-  padding: 1em;
-  margin: 1em;
-  border-radius: .5em;
-}
-
-.holder {
-  text-align: center;
-}
-
-body {
-background-color: #f9f9f9;
-}
-
-h3 {
-  text-align: center;
-  line-height: 1.5;
-}
-
-#result {
-  text-align: center;
-  font-size: 2em;
-  color: #754651;
-  line-height: 1.5;
-}
-
-  </style>
-  
  </head>
  <body>
-  <h3>Random Word Generator</h3>
-<div class="holder">
-<input type='submit' onClick="randGen()">
-<input type="reset" onClick="Reset()">
-</div>
-<div id="result"></div>
+	<input id="number" type="number" value="5">
+	<input type='submit' onClick="randGenTimer()">
+	<div id="result"></div>
+
 <script>
 var myArray = ['yellow', 'gross', 'school', 'boy', 'work', 'cool', 'car', '42', 'yes', 'love', 'no', 'broken', 'space', 'boring' ];
 
-var output = document.getElementById("result");
 var randGen = function () {
-  	
   	output.innerHTML = "";
-  
   	var rand = myArray[Math.round(Math.random() * (myArray.length - 1))];
-
-  	
     output.innerHTML = rand;
 };
 
-var Reset = function() {
-  output.innerHTML = " ";
-  
-};
+var seconds = document.getElementById("number").value;
 
-  </script>
- </body>
+var randGenTimer = setInterval(randGen, seconds*1000);
+
+var output = document.getElementById("result");
+
+</script>
+</body>
 </html>
